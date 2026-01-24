@@ -34,3 +34,4 @@ Built with ❤️ for the next big thing on Stacks.## Current Status: Production
 ## Current Status: Production Ready
 ## Project Status: Stacks Hackathon Version 1.0
 ### Frontend Setup Info
+## Deployment Status: Ready
