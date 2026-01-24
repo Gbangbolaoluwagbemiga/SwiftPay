@@ -201,3 +201,4 @@ function LayoutDashboard(props: any) {
   );
 }
 // Font weight adjustments
+// Icon alignment fix
