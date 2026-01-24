@@ -131,3 +131,9 @@
         (ok true)
     )
 )
+(define-public (set-paused (paused bool))
+    (begin
+        (asserts! (is-eq tx-sender CONTRACT-OWNER) ERR-NOT-AUTHORIZED)
+        (ok (var-set is-paused paused))
+    )
+)
