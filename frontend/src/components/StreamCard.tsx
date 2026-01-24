@@ -121,3 +121,4 @@ export default function StreamCard({ stream }: { stream: StreamCardProps }) {
     );
 }
 // Precise math for timer
+// Smoother transitions
