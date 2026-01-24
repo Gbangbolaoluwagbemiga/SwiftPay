@@ -3,3 +3,10 @@
 (define-non-fungible-token swift-pay-stream uint)
 (define-constant CONTRACT-OWNER tx-sender)
 (define-data-var last-id uint u0)
+(define-data-var swift-pay-engine principal tx-sender)
+(define-public (set-engine (new-engine principal))
+    (begin
+        (asserts! (is-eq tx-sender CONTRACT-OWNER) ERR-NOT-AUTHORIZED)
+        (ok (var-set swift-pay-engine new-engine))
+    )
+)
