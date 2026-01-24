@@ -10,3 +10,9 @@
         (ok (var-set swift-pay-engine new-engine))
     )
 )
+(define-public (mint (recipient principal) (id uint))
+    (begin
+        (asserts! (is-eq contract-caller (var-get swift-pay-engine)) (err u100))
+        (nft-mint? swift-pay-stream id recipient)
+    )
+)
