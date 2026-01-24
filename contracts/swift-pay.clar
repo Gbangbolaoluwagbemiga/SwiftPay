@@ -37,3 +37,27 @@
     )
     )
 )
+(define-public (create-stx-stream (recipient principal) (amount uint) (start-block uint) (stop-block uint))
+    (let (
+        (stream-id (var-get next-stream-id))
+        (contract-addr (as-contract tx-sender))
+    )
+        (asserts! (not (var-get is-paused)) (err u105))
+        (asserts! (> amount u0) ERR-INVALID-PARAMS)
+        (asserts! (> stop-block start-block) ERR-INVALID-PARAMS)
+        (asserts! (>= start-block block-height) ERR-INVALID-PARAMS)
+        (try! (stx-transfer? amount tx-sender contract-addr))
+        (map-set streams stream-id {
+            sender: tx-sender,
+            token-contract: none,
+            amount-total: amount,
+            amount-withdrawn: u0,
+            start-block: start-block,
+            stop-block: stop-block,
+            is-cancelled: false
+        })
+        (try! (contract-call? .swift-pay-nft mint recipient stream-id))
+        (var-set next-stream-id (+ stream-id u1))
+        (ok stream-id)
+    )
+)
