@@ -25,3 +25,9 @@
 (define-read-only (get-last-token-id) (ok (var-get last-id)))
 (define-read-only (get-token-uri (id uint)) (ok none))
 (define-read-only (get-owner (id uint)) (ok (nft-get-owner? swift-pay-stream id)))
+(define-public (transfer (id uint) (sender principal) (recipient principal))
+    (begin
+        (asserts! (is-eq tx-sender sender) (err u100))
+        (nft-transfer? swift-pay-stream id sender recipient)
+    )
+)
