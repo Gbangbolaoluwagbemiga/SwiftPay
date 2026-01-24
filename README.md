@@ -30,4 +30,4 @@ npm test
 SwiftPay solves a fundamental problem in the Stacks ecosystem: **Liquidity for future cash flows.** By turning a payment stream into an NFT, we enable a whole new class of "Yield-Bearing Assets" that can be used as collateral or traded.
 
 ---
-Built with ❤️ for the next big thing on Stacks.
+Built with ❤️ for the next big thing on Stacks.## Current Status: Production Ready
